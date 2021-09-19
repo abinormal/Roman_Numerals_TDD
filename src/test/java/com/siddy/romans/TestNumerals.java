@@ -7,13 +7,32 @@ import static org.junit.Assert.*;
 public class TestNumerals {
 
     @Test
-    public void testTheTestFails(){
+    public void testGetsFive() {
         // Arrange
         RomanNumerals numerals = new RomanNumerals();
         // Act
-        int result = numerals.getNumber("V");
+        String result = numerals.getNumeral(5);
         // Assert
-        assertEquals(5, result);
+        assertEquals("V", result);
     }
 
+    @Test
+    public void testGetsOne() {
+        // Arrange
+        RomanNumerals numerals = new RomanNumerals();
+        // Act
+        String result = numerals.getNumeral(1);
+        // Assert
+        assertEquals("I", result);
+    }
+
+    @Test
+    public void testGetsNine() {
+        // Arrange
+        RomanNumerals numerals = new RomanNumerals();
+        // Act
+        String result = numerals.getNumeral(9);
+        // Assert
+        assertEquals("IX", result);
+    }
 }
