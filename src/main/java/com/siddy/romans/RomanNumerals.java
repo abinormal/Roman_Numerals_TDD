@@ -12,12 +12,14 @@ public class RomanNumerals {
             return "";
         }
         return switch (length) {
-            case 1 -> getUnit(number);
-            case 2 -> getTens(getLastDigit(stripOffLastDigit(number))) + getUnit(getLastDigit(number));
-            case 3 -> getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) + getTens(getLastDigit(stripOffLastDigit(number))) + getUnit(getLastDigit(number));
+            case 1 -> getUnits(number);
+            case 2 -> getTens(getLastDigit(stripOffLastDigit(number))) +
+                      getUnits(getLastDigit(number));
+            case 3 -> getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
+                      getTens(getLastDigit(stripOffLastDigit(number))) +
+                      getUnits(getLastDigit(number));
             default -> "Something went wrong";
         };
-
     }
 
     private int stripOffLastDigit(int number) {
@@ -28,7 +30,7 @@ public class RomanNumerals {
         return number % 10;
     }
 
-    private String getUnit(int number) {
+    private String getUnits(int number) {
         return switch (number) {
             case 1 -> "I";
             case 2 -> "II";
