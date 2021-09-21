@@ -8,6 +8,7 @@ public class RomanNumerals {
         // Get the numeral
         // Take last digit off number
         int length = String.valueOf(number).length();
+
         if (number == 0) {
             return "";
         }
@@ -16,6 +17,10 @@ public class RomanNumerals {
             case 2 -> getTens(getLastDigit(stripOffLastDigit(number))) +
                       getUnits(getLastDigit(number));
             case 3 -> getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
+                      getTens(getLastDigit(stripOffLastDigit(number))) +
+                      getUnits(getLastDigit(number));
+            case 4 -> getThousands(getLastDigit(stripOffLastDigit(stripOffLastDigit(stripOffLastDigit(number))))) +
+                      getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
                       getTens(getLastDigit(stripOffLastDigit(number))) +
                       getUnits(getLastDigit(number));
             default -> "Something went wrong";
@@ -71,6 +76,23 @@ public class RomanNumerals {
             case 7 -> "DCC";
             case 8 -> "DCCC";
             case 9 -> "CM";
+            default -> "";
+        };
+    }
+    // When numbers got higher than 3000 the Romans would start over at the
+    // bottom but add an over line (macron) above the letter to show it's worth 1000
+    // For example IV means 4 but with an over line it's 4000.
+    private String getThousands(int number){
+        return switch (number) {
+            case 1 -> "M";
+            case 2 -> "MM";
+            case 3 -> "MMM";
+            case 4 -> "MMMM";
+            case 5 -> "MMMMM";
+            case 6 -> "MMMMMM";
+            case 7 -> "MMMMMMM";
+            case 8 -> "MMMMMMMM";
+            case 9 -> "MMMMMMMMM";
             default -> "";
         };
     }

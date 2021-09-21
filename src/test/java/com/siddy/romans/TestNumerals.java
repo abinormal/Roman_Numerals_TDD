@@ -5,7 +5,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestNumerals {
-
+    /********************************************************
+     * Get one digit numerals
+     */
     @Test
     public void testGetsOne() {
         // Arrange
@@ -35,7 +37,9 @@ public class TestNumerals {
         // Assert
         assertEquals("", result);
     }
-
+    /********************************************************
+     * Get two digit numerals
+     */
     @Test
     public void testGetFourteen(){
         // Arrange
@@ -66,14 +70,19 @@ public class TestNumerals {
         assertEquals("XCIX", result);
     }
 
+    /********************************************************
+     * Get three digit numerals
+     */
     @Test
     public void testGetZeroThreeTwo(){
         // Arrange
         RomanNumerals numerals = new RomanNumerals();
         // Act
+        // Given an Octal value (any int beginning with a zero),
+        // RomanNumerals returns a XXVI - 26 which is correct.
         String result = numerals.getNumeral(032);
         // Assert
-        assertEquals("XXXII", result);
+        assertEquals("XXVI", result);
     }
 
     @Test
@@ -94,5 +103,37 @@ public class TestNumerals {
         String result = numerals.getNumeral(970);
         // Assert
         assertEquals("CMLXX", result);
+    }
+
+    @Test
+    public void testGetFourHundredAndNinetyOne(){
+        // Arrange
+        RomanNumerals numerals = new RomanNumerals();
+        // Act
+        String result = numerals.getNumeral(970);
+        // Assert
+        assertEquals("CMLXX", result);
+    }
+
+    /********************************************************
+     * Get four digit numerals
+     */
+    @Test
+    public void testGetThreeThousandFiveHundredAndSixtyEight(){
+        RomanNumerals numerals = new RomanNumerals();
+        String result = numerals.getNumeral(3568);
+        assertEquals("MMMDLXVIII", result);
+    }
+    @Test
+    public void testGetTwoThousandAndNinetyOne(){
+        RomanNumerals numerals = new RomanNumerals();
+        String result = numerals.getNumeral(2091);
+        assertEquals("MMXCI", result);
+    }
+    @Test
+    public void testGetFourThousand(){
+        RomanNumerals numerals = new RomanNumerals();
+        String result = numerals.getNumeral(4000);
+        assertEquals("MMMM", result);
     }
 }
