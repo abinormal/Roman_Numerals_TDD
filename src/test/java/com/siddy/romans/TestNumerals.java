@@ -1,5 +1,6 @@
 package com.siddy.romans;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,65 +9,48 @@ public class TestNumerals {
     /********************************************************
      * Get one digit numerals
      */
+    RomanNumerals numerals;
+    @Before
+    public void setup(){
+         numerals = new RomanNumerals();
+    }
+
     @Test
     public void testGetsOne() {
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
         String result = numerals.getNumeral(1);
-        // Assert
         assertEquals("I", result);
     }
 
     @Test
-    public void testGetNine(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetNine() {
         String result = numerals.getNumeral(9);
-        // Assert
         assertEquals("IX", result);
     }
 
     @Test
-    public void testGetZero(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetZero() {
         String result = numerals.getNumeral(0);
-        // Assert
         assertEquals("", result);
     }
+
     /********************************************************
      * Get two digit numerals
      */
     @Test
-    public void testGetFourteen(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetFourteen() {
         String result = numerals.getNumeral(14);
-        // Assert
         assertEquals("XIV", result);
     }
 
     @Test
-    public void testGetEightySix(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetEightySix() {
         String result = numerals.getNumeral(86);
-        // Assert
         assertEquals("LXXXVI", result);
     }
 
     @Test
-    public void testGetNinetyNine(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetNinetyNine() {
         String result = numerals.getNumeral(99);
-        // Assert
         assertEquals("XCIX", result);
     }
 
@@ -75,32 +59,20 @@ public class TestNumerals {
      */
 
     @Test
-    public void testGetOneHundredAndThree(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetOneHundredAndThree() {
         String result = numerals.getNumeral(103);
-        // Assert
         assertEquals("CIII", result);
     }
 
     @Test
-    public void testGetNineHundredAndSeventy(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetNineHundredAndSeventy() {
         String result = numerals.getNumeral(970);
-        // Assert
         assertEquals("CMLXX", result);
     }
 
     @Test
-    public void testGetFourHundredAndNinetyOne(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
+    public void testGetFourHundredAndNinetyOne() {
         String result = numerals.getNumeral(970);
-        // Assert
         assertEquals("CMLXX", result);
     }
 
@@ -108,21 +80,21 @@ public class TestNumerals {
      * Get four digit numerals
      */
     @Test
-    public void testGetThreeThousandFiveHundredAndSixtyEight(){
-        RomanNumerals numerals = new RomanNumerals();
+    public void testGetThreeThousandFiveHundredAndSixtyEight() {
         String result = numerals.getNumeral(3568);
         assertEquals("MMMDLXVIII", result);
     }
+
     @Test
-    public void testGetTwoThousandAndNinetyOne(){
-        RomanNumerals numerals = new RomanNumerals();
+    public void testGetTwoThousandAndNinetyOne() {
         String result = numerals.getNumeral(2091);
         assertEquals("MMXCI", result);
     }
+
     @Test
-    public void testGetFourThousand(){
-        RomanNumerals numerals = new RomanNumerals();
+    public void testGetFourThousand() {
         String result = numerals.getNumeral(4000);
         assertEquals("MMMM", result);
     }
+
 }
