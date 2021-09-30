@@ -80,7 +80,7 @@ public class TestNumerals {
     }
 
     @Test
-    public void testGetThirtyFive(){
+    public void testGetThirtyFive() {
         assertEquals("XXXV", numerals.getNumeral(35));
     }
 
@@ -135,4 +135,42 @@ public class TestNumerals {
         assertEquals("MMMMMMCCXIII", numerals.getNumeral(6213));
     }
 
+    /********************************************************
+     * Get Numbers when given a numeral as a String
+     */
+
+    @Test
+    public void testGetI() {
+        assertEquals(1, numerals.getNumeral("I"));
+    }
+
+    @Test
+    public void testGetV() {
+        assertEquals(5, numerals.getNumeral("V"));
+    }
+
+    @Test
+    public void testGetX() {
+        assertEquals(10, numerals.getNumeral("X"));
+    }
+
+    @Test
+    public void testGetL() {
+        assertEquals(50, numerals.getNumeral("L"));
+    }
+
+    @Test
+    public void testGetC() {
+        assertEquals(100, numerals.getNumeral("C"));
+    }
+
+    @Test
+    public void testGetD() {
+        assertEquals(500, numerals.getNumeral("D"));
+    }
+
+    @Test
+    public void testGetM() {
+        assertEquals(1000, numerals.getNumeral("M"));
+    }
 }

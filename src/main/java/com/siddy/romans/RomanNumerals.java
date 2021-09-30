@@ -15,15 +15,30 @@ public class RomanNumerals {
         return switch (length) {
             case 1 -> getUnits(number);
             case 2 -> getTens(getLastDigit(stripOffLastDigit(number))) +
-                      getUnits(getLastDigit(number));
+                    getUnits(getLastDigit(number));
             case 3 -> getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
-                      getTens(getLastDigit(stripOffLastDigit(number))) +
-                      getUnits(getLastDigit(number));
+                    getTens(getLastDigit(stripOffLastDigit(number))) +
+                    getUnits(getLastDigit(number));
             case 4 -> getThousands(getLastDigit(stripOffLastDigit(stripOffLastDigit(stripOffLastDigit(number))))) +
-                      getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
-                      getTens(getLastDigit(stripOffLastDigit(number))) +
-                      getUnits(getLastDigit(number));
+                    getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
+                    getTens(getLastDigit(stripOffLastDigit(number))) +
+                    getUnits(getLastDigit(number));
             default -> "Something went wrong";
+        };
+    }
+
+    public int getNumeral(String string) {
+        int total = 0;
+
+        return switch (string) {
+            case "I" -> 1;
+            case "V" -> 5;
+            case "X" -> 10;
+            case "L" -> 50;
+            case "C" -> 100;
+            case "D" -> 500;
+            case "M" -> 1000;
+            default -> 0;
         };
     }
 
@@ -79,10 +94,11 @@ public class RomanNumerals {
             default -> "";
         };
     }
+
     // When numbers got higher than 3000 the Romans would start over at the
     // bottom but add an over line (macron) above the letter to show it's worth 1000
     // For example IV means 4 but with an over line it's 4000.
-    private String getThousands(int number){
+    private String getThousands(int number) {
         return switch (number) {
             case 1 -> "M";
             case 2 -> "MM";
