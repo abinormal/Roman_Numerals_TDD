@@ -6,74 +6,110 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestNumerals {
+
+    /********************************************************
+     * Setup tests
+     */
+    RomanNumerals numerals;
+
+    @Before
+    public void setup() {
+        numerals = new RomanNumerals();
+    }
+
     /********************************************************
      * Get one digit numerals
      */
-    RomanNumerals numerals;
-    @Before
-    public void setup(){
-         numerals = new RomanNumerals();
+    @Test
+    public void testGetZero() {
+        assertEquals("", numerals.getNumeral(0));
     }
 
     @Test
     public void testGetsOne() {
-        String result = numerals.getNumeral(1);
-        assertEquals("I", result);
+        assertEquals("I", numerals.getNumeral(1));
+    }
+
+    @Test
+    public void testGetsTwo() {
+        assertEquals("II", numerals.getNumeral(2));
+    }
+
+    @Test
+    public void testGetsThree() {
+        assertEquals("III", numerals.getNumeral(3));
+    }
+
+    @Test
+    public void testGetsFour() {
+        assertEquals("IV", numerals.getNumeral(4));
+    }
+
+    @Test
+    public void testGetsFive() {
+        assertEquals("V", numerals.getNumeral(5));
+    }
+
+    @Test
+    public void testGetsSix() {
+        assertEquals("VI", numerals.getNumeral(6));
+    }
+
+    @Test
+    public void testGetsSeven() {
+        assertEquals("VII", numerals.getNumeral(7));
+    }
+
+    @Test
+    public void testGetsEight() {
+        assertEquals("VIII", numerals.getNumeral(8));
     }
 
     @Test
     public void testGetNine() {
-        String result = numerals.getNumeral(9);
-        assertEquals("IX", result);
+        assertEquals("IX", numerals.getNumeral(9));
     }
 
-    @Test
-    public void testGetZero() {
-        String result = numerals.getNumeral(0);
-        assertEquals("", result);
-    }
 
     /********************************************************
      * Get two digit numerals
      */
     @Test
     public void testGetFourteen() {
-        String result = numerals.getNumeral(14);
-        assertEquals("XIV", result);
+        assertEquals("XIV", numerals.getNumeral(14));
+    }
+
+    @Test
+    public void testGetThirtyFive(){
+        assertEquals("XXXV", numerals.getNumeral(35));
     }
 
     @Test
     public void testGetEightySix() {
-        String result = numerals.getNumeral(86);
-        assertEquals("LXXXVI", result);
+        assertEquals("LXXXVI", numerals.getNumeral(86));
     }
 
     @Test
     public void testGetNinetyNine() {
-        String result = numerals.getNumeral(99);
-        assertEquals("XCIX", result);
+        assertEquals("XCIX", numerals.getNumeral(99));
     }
 
     /********************************************************
      * Get three digit numerals
      */
-
     @Test
     public void testGetOneHundredAndThree() {
-        String result = numerals.getNumeral(103);
-        assertEquals("CIII", result);
+        assertEquals("CIII", numerals.getNumeral(103));
     }
 
     @Test
     public void testGetNineHundredAndSeventy() {
-        String result = numerals.getNumeral(970);
-        assertEquals("CMLXX", result);
+        assertEquals("CMLXX", numerals.getNumeral(970));
     }
 
     @Test
     public void testGetFourHundredAndNinetyOne() {
-        String result = numerals.getNumeral(970);
-        assertEquals("CMLXX", result);
+        assertEquals("CMLXX", numerals.getNumeral(970));
     }
 
     /********************************************************
@@ -81,20 +117,22 @@ public class TestNumerals {
      */
     @Test
     public void testGetThreeThousandFiveHundredAndSixtyEight() {
-        String result = numerals.getNumeral(3568);
-        assertEquals("MMMDLXVIII", result);
+        assertEquals("MMMDLXVIII", numerals.getNumeral(3568));
     }
 
     @Test
     public void testGetTwoThousandAndNinetyOne() {
-        String result = numerals.getNumeral(2091);
-        assertEquals("MMXCI", result);
+        assertEquals("MMXCI", numerals.getNumeral(2091));
     }
 
     @Test
     public void testGetFourThousand() {
-        String result = numerals.getNumeral(4000);
-        assertEquals("MMMM", result);
+        assertEquals("MMMM", numerals.getNumeral(4000));
+    }
+
+    @Test
+    public void testGetSixThousandTwoHundredAndThirteen() {
+        assertEquals("MMMMMMCCXIII", numerals.getNumeral(6213));
     }
 
 }
