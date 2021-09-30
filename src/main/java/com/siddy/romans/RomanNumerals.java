@@ -28,7 +28,6 @@ public class RomanNumerals {
     }
 
     public int getNumeral(String string) {
-        int total = 0;
 
         return switch (string) {
             case "I" -> 1;
