@@ -73,17 +73,6 @@ public class TestNumerals {
     /********************************************************
      * Get three digit numerals
      */
-    @Test
-    public void testGetZeroThreeTwo(){
-        // Arrange
-        RomanNumerals numerals = new RomanNumerals();
-        // Act
-        // Given an Octal value (any int beginning with a zero),
-        // RomanNumerals returns a XXVI - 26 which is correct.
-        String result = numerals.getNumeral(032);
-        // Assert
-        assertEquals("XXVI", result);
-    }
 
     @Test
     public void testGetOneHundredAndThree(){
