@@ -2,8 +2,22 @@ package com.siddy.romans;
 
 public class RomanNumerals {
 
-    public String getNumeral(int number) {
+    // Given a string of numerals return the value as an int
+    public int getNumeral(String string) {
+        return switch (string) {
+            case "I" -> 1;
+            case "V" -> 5;
+            case "X" -> 10;
+            case "L" -> 50;
+            case "C" -> 100;
+            case "D" -> 500;
+            case "M" -> 1000;
+            default -> 0;
+        };
+    }
 
+    // Given an int return the Roman numerals as a String
+    public String getNumeral(int number) {
         // Get last digit
         // Get the numeral
         // Take last digit off number
@@ -23,21 +37,7 @@ public class RomanNumerals {
                     getHundreds(getLastDigit(stripOffLastDigit(stripOffLastDigit(number)))) +
                     getTens(getLastDigit(stripOffLastDigit(number))) +
                     getUnits(getLastDigit(number));
-            default -> "Something went wrong";
-        };
-    }
-
-    public int getNumeral(String string) {
-
-        return switch (string) {
-            case "I" -> 1;
-            case "V" -> 5;
-            case "X" -> 10;
-            case "L" -> 50;
-            case "C" -> 100;
-            case "D" -> 500;
-            case "M" -> 1000;
-            default -> 0;
+            default -> "I can't handle this many numbers yet.";
         };
     }
 
@@ -50,65 +50,23 @@ public class RomanNumerals {
     }
 
     private String getUnits(int number) {
-        return switch (number) {
-            case 1 -> "I";
-            case 2 -> "II";
-            case 3 -> "III";
-            case 4 -> "IV";
-            case 5 -> "V";
-            case 6 -> "VI";
-            case 7 -> "VII";
-            case 8 -> "VIII";
-            case 9 -> "IX";
-            default -> "";
-        };
+        String[] units = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
+        return units[number];
     }
 
     private String getTens(int number) {
-        return switch (number) {
-            case 1 -> "X";
-            case 2 -> "XX";
-            case 3 -> "XXX";
-            case 4 -> "XL";
-            case 5 -> "L";
-            case 6 -> "LX";
-            case 7 -> "LXX";
-            case 8 -> "LXXX";
-            case 9 -> "XC";
-            default -> "";
-        };
+        String[] tens = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+        return tens[number];
     }
 
     private String getHundreds(int number) {
-        return switch (number) {
-            case 1 -> "C";
-            case 2 -> "CC";
-            case 3 -> "CCC";
-            case 4 -> "CD";
-            case 5 -> "D";
-            case 6 -> "DC";
-            case 7 -> "DCC";
-            case 8 -> "DCCC";
-            case 9 -> "CM";
-            default -> "";
-        };
+        String[] hundreds = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+        return hundreds[number];
     }
 
-    // When numbers got higher than 3000 the Romans would start over at the
-    // bottom but add an over line (macron) above the letter to show it's worth 1000
-    // For example IV means 4 but with an over line it's 4000.
+    // todo - work out how to create a macron over the numeral to specify 1000s
     private String getThousands(int number) {
-        return switch (number) {
-            case 1 -> "M";
-            case 2 -> "MM";
-            case 3 -> "MMM";
-            case 4 -> "MMMM";
-            case 5 -> "MMMMM";
-            case 6 -> "MMMMMM";
-            case 7 -> "MMMMMMM";
-            case 8 -> "MMMMMMMM";
-            case 9 -> "MMMMMMMMM";
-            default -> "";
-        };
+        String[] thousands = {"","M","MM","MMM","MMMM","MMMMM","MMMMMM","MMMMMMM","MMMMMMMM","MMMMMMMMM"};
+        return thousands[number];
     }
 }
